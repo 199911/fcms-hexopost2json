@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const hexopost2json = require('..');        // looks for "main" in ../package.json
+
+program
+    .version(require('../package.json').version)
+    .usage('<hexo post file path>')
+    .parse(process.argv);
+
+// If there's no list of files to process, print usage and quit immediately
+if (!program.args.length === 1) {
+    program.help();
+}
+
+const posts = hexopost2json(program.args);
+if (posts) {
+    const json = JSON.stringify(posts);
+    process.stdout.write(json);
+}
