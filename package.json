@@ -1,8 +1,11 @@
 {
   "name": "fcms-hexopost2json",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Convert a directory of hexo post mark down to fcms objects",
   "main": "./lib/hexopost2json.js",
+  "bin": {
+    "hexopost2json": "./bin/hexopost2json"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
